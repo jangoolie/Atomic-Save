@@ -11,7 +11,7 @@ function! AtomicSave()
   endif|
 
   " it's hard to grab the perms to make this portable. see http://mywiki.wooledge.org/BashFAQ/087
-  call system('! test -e ' . l:filename . ' || chmod --reference=' . l:filename . ' ' . l:tempfile)|
+  call system('! test -e ' . l:filename . ' || gchmod --reference=' . l:filename . ' ' . l:tempfile)|
   if v:shell_error|
     echo "error setting permissions on temporary file: chmod returned " . v:shell_error|
     return|
